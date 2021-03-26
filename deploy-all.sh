@@ -11,12 +11,12 @@ sudo ./install-java.sh
 sudo ./install-mysql-client.sh
 
 # Prepare nginx environment
-./prepare-nginx.sh ${ROOT_DIRECTORY} ${SERVICES_DIRECTORY_NAME}
+./prepare-nginx.sh "${ROOT_DIRECTORY}" ${SERVICES_DIRECTORY_NAME}
 
 # Install the backend
-./deploy-backend.sh ${SERVICES_DIRECTORY}
+./deploy-backend.sh "${SERVICES_DIRECTORY}"
 
 # Load the database
-./update-database.sh ${SERVICES_DIRECTORY}
+./update-database.sh "${SERVICES_DIRECTORY}"
 
 exit
