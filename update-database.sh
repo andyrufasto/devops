@@ -1,19 +1,16 @@
-#/bin/bash -x
+#!/bin/bash
+
 #Setting variables
-if [ -z "$1" ]
-  then
-    echo "No services folder directory supplied replaced by $HOME/services"
-		SERVICES_DIRECTORY=${HOME}/services
-  else
-		SERVICES_DIRECTORY=$1
-fi
+
+[ -z "$1" ] && echo "No services folder directory supplied replaced by ""$HOME""/services" && SERVICES_DIRECTORY="${HOME}"/services || SERVICES_DIRECTORY="$1"
 
 BACKEND_DIRECTORY=${SERVICES_DIRECTORY}/open-politica-backend
-cd ${BACKEND_DIRECTORY}/src/dbtools
+cd "${BACKEND_DIRECTORY}"/src/dbtools
 
 #Configure the mysql_client
 LOGIN=local
-HOST=`sudo docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' open-politica-backend_votu_backend_mariadb_1`
+HOST=$(sudo docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' open-politica-backend_votu_backend_mariadb_1)
+
 USER=root
 PASS=op123%
 
