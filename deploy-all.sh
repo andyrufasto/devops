@@ -1,4 +1,4 @@
-#!/bin/bash +x
+#!/bin/bash
 
 #Variables for deployment
 ROOT_DIRECTORY=${HOME}
